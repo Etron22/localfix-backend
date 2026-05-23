@@ -64,3 +64,5 @@ backend/.cache/
 backend/npm-debug.log*
 backend/yarn-debug.log*
 backend/pnpm-debug.log*
+
+/src/generated/prisma

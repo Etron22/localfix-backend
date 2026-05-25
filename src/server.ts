@@ -1,11 +1,12 @@
-require("dotenv").config();
+import "dotenv/config";
 
-const app = require("./app");
-const pool = require("./db/connection");
+import app from "./app";
+import pool from "./db/connection";
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT ?? 5000;
 
-pool.connect()
+pool
+  .query("SELECT 1")
   .then(() => {
     console.log("Supabase PostgreSQL Connected");
 
@@ -13,6 +14,6 @@ pool.connect()
       console.log(`Server running on port ${PORT}`);
     });
   })
-  .catch((err) => {
+  .catch((err: unknown) => {
     console.log(err);
   });
